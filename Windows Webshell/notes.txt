@@ -1,0 +1,2 @@
+//ping.php goes in C:\xampp\htdocs\ping.php
+//(Get-Content C:\xampp\apache\conf\extra\httpd-ssl.conf).Replace("ServerName www.example.com:443", "#ServerName www.example.com:443`r`nServerName localhost") | Set-Content C:\xampp\apache\conf\extra\httpd-ssl.conf

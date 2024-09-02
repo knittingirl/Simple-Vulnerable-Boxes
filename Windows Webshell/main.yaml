@@ -1,0 +1,17 @@
+- name: This will set up a web-based command injection on the Windows Server 2016 machine
+  hosts: WinServ2016
+  remote_user: vagrant
+  gather_facts: no
+  tasks:
+    - name: Add website code
+      ansible.builtin.copy:
+        src: ping.php
+        dest: /xampp/htdocs/index.php
+    - name: Add flag file
+      ansible.builtin.copy:
+        src: flag.txt
+        dest: /Users/vagrant/Documents/flag.txt
+    - name: Run XAMPP
+      ansible.windows.win_shell: /xampp/xampp_start.exe
+
+   #./xam	 

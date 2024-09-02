@@ -1,0 +1,22 @@
+- name: This will set up a web-based command injection on the Windows Server 2016 machine
+  hosts: WinServ2016
+  remote_user: vagrant
+  gather_facts: no
+  tasks:
+    - name: Disable Domain firewall
+      community.windows.win_firewall:
+        state: disabled
+        profiles:
+          - Domain
+          - Private
+          - Public
+          
+    - name: Download Xampp
+      win_get_url:
+        url: https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.0.30/xampp-windows-x64-8.0.30-0-VS16-installer.exe
+        dest: C:\tmp\xampp-installer.exe
+    - name: Install Xampp
+      win_package:
+        path: C:\tmp\xampp-installer.exe
+        arguments: --mode unattended
+        state: present
