@@ -13,5 +13,3 @@
         dest: /Users/vagrant/Documents/flag.txt
     - name: Run XAMPP
       ansible.windows.win_shell: /xampp/xampp_start.exe
-
-   #./xam	 
