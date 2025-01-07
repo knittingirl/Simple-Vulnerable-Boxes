@@ -8,11 +8,6 @@ boxes = [
   { :name => "WinServ2016",  :ip => "192.168.56.23", :box => "StefanScherer/windows_2016", :box_version => "2017.12.14", :os => "windows"},
 ]
 
-  config.vm.provider "virtualbox" do |v|
-    v.memory = 4000
-    v.cpus = 2
-  end
-
   config.vm.provider "vmware_desktop" do |v|
     v.vmx["memsize"] = "4000"
     v.vmx["numvcpus"] = "2"
@@ -36,10 +31,6 @@ boxes = [
   boxes.each do |box|
     config.vm.define box[:name] do |target|
       # BOX
-      target.vm.provider "virtualbox" do |v|
-        v.name = box[:name]
-        v.customize ["modifyvm", :id, "--groups", "/GOAD"]
-      end
       target.vm.box_download_insecure = box[:box]
       target.vm.box = box[:box]
       if box.has_key?(:box_version)
