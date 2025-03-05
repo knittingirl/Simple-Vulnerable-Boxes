@@ -1,0 +1,37 @@
+- name: This sets up a more pwn-themed Linux machine
+  hosts: Pwnable
+  remote_user: vagrant
+  become: yes
+  become_user: root
+  gather_facts: no
+  tasks:
+    - name: Make new user with limited perms
+      user: 
+        name: greeting_user
+        password: "{{ 'PleaseDoNotBrute' | password_hash('sha512') }}"
+        state: present
+    - name: Install tcp server
+      shell: sudo apt install -y ucspi-tcp
+
+    - name: Set suid bit for privilege escalation
+      shell: sudo chmod u+s /usr/bin/date
+
+    - name: Get greeting binary.
+      copy:
+        src: greeting
+        dest: /home/greeting_user/greeting
+        owner: greeting_user
+        group: greeting_user
+        mode: u=rwx,g=r,o=r
+    - name: Get user flag.
+      copy:
+        src: flag.txt
+        dest: /home/greeting_user/flag.txt
+        owner: greeting_user
+        group: greeting_user
+    - name: Get root flag.
+      copy:
+        src: root.txt
+        dest: /root/root.txt
+        owner: root
+        group: root

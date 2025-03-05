@@ -1,0 +1,8 @@
+- name: This runs the custom binary with the appropriate user.
+  hosts: Pwnable
+
+  remote_user: greeting_user
+  gather_facts: no
+  tasks:
+    - name: Run greeting binary
+      shell: tcpserver  -v 192.168.56.33 4444 ./greeting

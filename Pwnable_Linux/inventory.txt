@@ -1,0 +1,11 @@
+; [Pwnable]
+Pwnable ansible_host=192.168.56.33
+;
+
+[all:vars]
+
+domain_name=Custom
+ansible_ssh_user=vagrant
+ansible_ssh_password=vagrant
+ansible_ssh_port=22
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
