@@ -1,6 +1,6 @@
 # Simple-Vulnerable-Boxes
 
-This repository provides two sample boxes built with vmware, vagrant, and ansible. If a user has the appropriate tools installed, either box can be initiated easily by simply cloning the repository and running the "run.sh" script in a Linux environment.
+This repository provides a framework for producing customizable cybersecurity labs, provided in the VulnCreator tool/directory. It also provides three sample boxes built with vmware, vagrant, and ansible. If a user has the appropriate tools installed, the main tool and all example labs can be initiated easily by simply cloning the repository and running the "run.sh" script in a Linux environment.
 
 ![image](https://github.com/user-attachments/assets/0c03f212-4281-4c9d-9624-5970465efb3e)
 
