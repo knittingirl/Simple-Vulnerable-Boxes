@@ -1,1 +1,2 @@
+## Usage Instructions:
 This tool is designed to allow the user to set up a lab in the same vein as the provided example labs. Simply insert the script to make the appropriate changes to the virtual machine into "setup.sh" if creating a Linux virtual machine, or "setup.ps1" if creating a Windows virtual machine. Then run the "run.sh" script and make appropriate changes as prompted.
