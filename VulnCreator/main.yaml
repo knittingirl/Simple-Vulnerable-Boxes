@@ -1,0 +1,5 @@
+- name: This will run a basic script as-is. Edit the appropriate script file and/or add ansible commands here.
+  remote_user: vagrant
+  gather_facts: no
+  tasks:
+    - name: Run shell script on remote server
